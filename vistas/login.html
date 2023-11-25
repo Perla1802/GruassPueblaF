@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -42,45 +45,43 @@
     </div>
 
     <script>
+        async function handleLogin() {
+            const username = $('#username').val();
+            const password = $('#password').val();
+            const errorDiv = $('#error');
 
- async function handleLogin() {
-        const username = $('#username').val();
-        const password = $('#password').val();
-        const errorDiv = $('#error');
+            if (username && password) {
+                try {
+                    const response = await $.ajax({
+                        url: `http://localhost:3001/usuarios/login/${username}/${password}`,
+                        method: 'GET',
+                        dataType: 'json'
+                    });
 
-        if (username && password) {
-            try {
-                const response = await $.ajax({
-                    url: `http://localhost:3001/usuarios/login/${username}/${password}`,
-                    method: 'GET',
-                    dataType: 'json'
-                });
-                
-                if (response.msg === 'Éxito.') {
-                    if (Object.keys(response.content).length > 0) {
-                        console.log("Inicio de sesión exitoso");
-                        const { nombre, apellido, tipo } = response.content;
+                    if (response.msg === 'Éxito.') {
+                        if (Object.keys(response.content).length > 0) {
+                            console.log("Inicio de sesión exitoso");
+                            const { nombre, apellido, tipo } = response.content;
 
-                        // Almacena los datos en el almacenamiento local
-                        localStorage.setItem('nombre', nombre);
-                        localStorage.setItem('apellido', apellido);
-                        localStorage.setItem('tipo', tipo);
+                            // Almacena los datos en el almacenamiento local
+                            localStorage.setItem('nombre', nombre);
+                            localStorage.setItem('apellido', apellido);
+                            localStorage.setItem('tipo', tipo);
 
-                        window.location.href = './incidentes.html';
+                            window.location.href = './incidentes.html';
+                        } else {
+                            errorDiv.html("Contraseña o usuario invalido.");
+                        }
                     } else {
-                        errorDiv.html("Contraseña o usuario invalido.");
+                        errorDiv.html("Error intenta más tarde.");
                     }
-                } else {
-                    errorDiv.html("Error intenta más tarde.");
+                } catch (error) {
+                    console.log({ error });
                 }
-            } catch (error) {
-                console.log({ error });
+            } else {
+                errorDiv.html("Ingresa todos los campos.");
             }
-        } else {
-            errorDiv.html("Ingresa todos los campos.");
         }
-    }
-
     </script>
 
 </body>
