@@ -60,7 +60,7 @@ Código
 Estilos
 ![RegistroC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/138956cc-7bdc-4255-bd49-84c2cecb4b12)
 
-# Explicación
+## Explicación
 Este código representa una página web para la gestión de incidentes. El sistema utiliza tecnologías como Bootstrap, jQuery y DataTables para crear una interfaz interactiva y tabular de incidentes, permitiendo agregar, editar y visualizar registros de incidentes.
 
 Características Principales:
