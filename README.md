@@ -26,29 +26,26 @@ Como su nombre lo dice, en esta parte el usuario puede loguarse ingresando su co
 Código
 ![login](https://github.com/Perla1802/GruassPueblaF/assets/59744172/13a99e96-eb20-4a0a-9087-ec216363af00)
 
-<title>Iniciar Sesión</title>: Define el título de la página que aparecerá en la pestaña del navegador.
-
+Explicación
 jQuery y Bootstrap:
-
 jQuery: Se incluye la biblioteca jQuery mediante <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>. jQuery es una biblioteca de JavaScript que simplifica la manipulación del DOM y la realización de solicitudes Ajax.
-
 Bootstrap: Se enlaza con Bootstrap para utilizar su sistema de estilos y componentes.
 
 Cuerpo de la página:
-<body class="bg-light">: Se establece una clase de fondo ligero para el cuerpo de la página.
+"<body class="bg-light">" :  Se establece una clase de fondo ligero para el cuerpo de la página.
 
 Contenedor principal y tarjeta de inicio de sesión:
-Se utiliza Bootstrap para organizar la estructura de la página con un contenedor y una fila centrada (<div class="container mt-5"> y <div class="row justify-content-center">).
-Se crea una tarjeta de Bootstrap (<div class="card">) que contiene el formulario de inicio de sesión.
+Se utiliza Bootstrap para organizar la estructura de la página con un contenedor y una fila centrada "(<div class="container mt-5"> y <div class="row justify-content-center">)".
+Se crea una tarjeta de Bootstrap "(<div class="card">)" que contiene el formulario de inicio de sesión.
 
 Formulario de inicio de sesión:
-Se utiliza un formulario (<form>) con dos campos de entrada (<input>) para el nombre de usuario y la contraseña.
-Un botón (<button>) que, al hacer clic, activa la función handleLogin().
+Se utiliza un formulario "(<form>)" con dos campos de entrada "(<input>)" para el nombre de usuario y la contraseña.
+Un botón "(<button>)" que, al hacer clic, activa la función "handleLogin()."
 
 JavaScript en línea:
-Se incluye un script JavaScript que define la función handleLogin(). Esta función realiza una solicitud Ajax al servidor para autenticar al usuario. Si la autenticación es exitosa, almacena algunos datos en el almacenamiento local y redirige a otra página.
+Se incluye un script JavaScript que define la función "handleLogin()". Esta función realiza una solicitud Ajax al servidor para autenticar al usuario. Si la autenticación es exitosa, almacena algunos datos en el almacenamiento local y redirige a otra página.
 
-Se utiliza el signo $ de jQuery para seleccionar elementos del DOM y realizar operaciones sobre ellos.
+Se utiliza el signo "$" de jQuery para seleccionar elementos del DOM y realizar operaciones sobre ellos.
 
 Se manejan diferentes casos de respuesta del servidor, mostrando mensajes de error o redirigiendo al usuario según sea necesario.
 
