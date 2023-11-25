@@ -28,21 +28,21 @@ Código
 
 Explicación
 jQuery y Bootstrap:
-jQuery: Se incluye la biblioteca jQuery mediante <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>. jQuery es una biblioteca de JavaScript que simplifica la manipulación del DOM y la realización de solicitudes Ajax.
+jQuery: Se incluye la biblioteca jQuery mediante <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>. 
+jQuery es una biblioteca de JavaScript que simplifica la manipulación del DOM y la realización de solicitudes Ajax.
 Bootstrap: Se enlaza con Bootstrap para utilizar su sistema de estilos y componentes.
 
-Encabezado (<head>): Se establecen metadatos como la codificación de caracteres y las configuraciones de visualización. Se incluyen enlaces a las bibliotecas jQuery y Bootstrap.
+Encabezado (head): Se establecen metadatos como la codificación de caracteres y las configuraciones de visualización. Se incluyen enlaces a las bibliotecas jQuery y Bootstrap.
 
-Cuerpo (<body>):
-
+Cuerpo (body):
 Se utiliza Bootstrap para organizar la página y proporcionar estilos.
 El contenido principal es un formulario de inicio de sesión dentro de una tarjeta.
-Formulario de Inicio de Sesión:
 
+Formulario de Inicio de Sesión:
 Dos campos de entrada para el nombre de usuario y la contraseña.
 Un botón que, al hacer clic, activa una función de inicio de sesión en JavaScript.
-JavaScript:
 
+JavaScript:
 Se utiliza jQuery para seleccionar elementos del DOM y realizar operaciones.
 La función handleLogin() realiza una solicitud al servidor para autenticar al usuario.
 Maneja diferentes respuestas del servidor, mostrando mensajes de error o redirigiendo al usuario.
