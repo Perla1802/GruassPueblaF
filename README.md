@@ -31,23 +31,21 @@ jQuery y Bootstrap:
 jQuery: Se incluye la biblioteca jQuery mediante <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>. jQuery es una biblioteca de JavaScript que simplifica la manipulación del DOM y la realización de solicitudes Ajax.
 Bootstrap: Se enlaza con Bootstrap para utilizar su sistema de estilos y componentes.
 
-Cuerpo de la página:
-"<body class="bg-light">" :  Se establece una clase de fondo ligero para el cuerpo de la página.
+Encabezado (<head>): Se establecen metadatos como la codificación de caracteres y las configuraciones de visualización. Se incluyen enlaces a las bibliotecas jQuery y Bootstrap.
 
-Contenedor principal e inicio de sesión:
-Se utiliza Bootstrap para organizar la estructura de la página con un contenedor y una fila centrada "div class="container mt-5" y div class="row justify-content-center".
-Se crea una tarjeta de Bootstrap "div class="card" " que contiene el formulario de inicio de sesión.
+Cuerpo (<body>):
 
-Formulario de inicio de sesión:
-Se utiliza un formulario "<form>" con dos campos de entrada "input" para el nombre de usuario y la contraseña.
-Un botón "button" que, al hacer clic, activa la función "handleLogin()."
+Se utiliza Bootstrap para organizar la página y proporcionar estilos.
+El contenido principal es un formulario de inicio de sesión dentro de una tarjeta.
+Formulario de Inicio de Sesión:
 
-JavaScript en línea:
-Se incluye un script JavaScript que define la función "handleLogin()". Esta función realiza una solicitud Ajax al servidor para autenticar al usuario. Si la autenticación es exitosa, almacena algunos datos en el almacenamiento local y redirige a otra página.
+Dos campos de entrada para el nombre de usuario y la contraseña.
+Un botón que, al hacer clic, activa una función de inicio de sesión en JavaScript.
+JavaScript:
 
-Se utiliza el signo "$" de jQuery para seleccionar elementos del DOM y realizar operaciones sobre ellos.
-
-Se manejan diferentes casos de respuesta del servidor, mostrando mensajes de error o redirigiendo al usuario según sea necesario.
+Se utiliza jQuery para seleccionar elementos del DOM y realizar operaciones.
+La función handleLogin() realiza una solicitud al servidor para autenticar al usuario.
+Maneja diferentes respuestas del servidor, mostrando mensajes de error o redirigiendo al usuario.
 
 ## Página de incidentes
 Esta página se visualiza una vez que el usuario se halla logueado, en la cual se muestra un sliderbar que puede colapasrse en pantallas más pequeñas, contiene 3 secciones: Inicio, ajustes y salir.
