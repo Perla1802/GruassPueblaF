@@ -5,33 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Incidentes</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <link rel="stylesheet" href="../css/styleIncidentesTable.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
 
     <!-- Font Awesome Icons (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../css/styleIncidentesTable.css">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+
 </head>
 
 <body>
 
     <div class="container-fluid">
         <div class="row">
+
             <!-- Barra lateral -->
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
                 <div class="sidebar-sticky" style="height: 100vh;">
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2" style="padding-top: 20px;">
@@ -71,31 +75,28 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="modal" role="edit" aria-labelledby="Editar" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Editar Registro</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body d-flex align-items-center justify-content-center">
                                 <!-- Campos de entrada para folio y dirección -->
                                 <input type="text" id="ids" hidden>
-                                <input type="text" id="folioInput" placeholder="Folio">
-                                <input type="text" id="direccionInput" placeholder="Dirección">
+                                <p>Folio: <input type="text" id="folioInput" placeholder="Folio"> </p>
+                                <p>Dirección: <input type="text" id="direccionInput" placeholder="Dirección"> </p>                        
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" onclick="guardarCambios(
-                                    <scrip> const id = $(#ids).value; print(id) </scrip> )">Guardar Cambios</button>
+                                <button id="cerrar" type="button" class="btn btn-danger" onclick="cerrarModal()">
+                                    <i class="fa fa-times" aria-hidden="true"></i> Cancelar
+                                </button>
+                                <button type="button" class="btn btn-primary"
+                                    onclick="guardarCambios ($('#ids').val())">Guardar Cambios</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- DataTable -->
                 <div class="table-responsive">
@@ -106,7 +107,7 @@
                                 <th>Folio</th>
                                 <th>Fecha</th>
                                 <th>Dirección</th>
-                                <th>Acciones</th>
+                                <th class="align-items-center justify-content-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -126,7 +127,7 @@
                     "sLengthMenu": "Mostrar _MENU_ registros",
                     "sZeroRecords": "No se encontraron resultados",
                     "sEmptyTable": "Ningún dato disponible en esta tabla",
-                    "sInfo": "Mostrando _END_ de un total de _TOTAL_ registros",
+                    "sInfo": "Mostrado _END_ de un total de _TOTAL_ registros",
                     "sInfoEmpty": "No se encontro información.",
                     "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
                     "sInfoPostFix": "",
@@ -137,8 +138,8 @@
                     "oPaginate": {
                         "sFirst": "Primero",
                         "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
+                        "sNext": ">",
+                        "sPrevious": "<"
                     },
                     "oAria": {
                         "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
@@ -161,8 +162,7 @@
                             const folio = row.folio;
                             const direccion = row.direccion;
                             // Botones de Acciones
-                            return `<button class="btn btn-primary btn-sm" onclick="editarRegistro('${idSiniestro}','${folio}','${direccion}')">Editar</button>` +
-                                `<button class="btn btn-info btn-sm ml-2" onclick="visualizarRegistro('${idSiniestro}')">Visualizar</button>`;
+                            return `<button class="btn btn-primary btn-sm" onclick="editarRegistro('${idSiniestro}','${folio}','${direccion}')">Editar</button>`;
                         }
                     }
                 ]
@@ -174,28 +174,32 @@
             });
         });
 
-        function editarRegistro(idSiniestro,folio,direccion) {
-            
+        function cerrarModal(){                
+            $("#modal").modal('hide')
+        }
+
+        function editarRegistro(idSiniestro, folio, direccion) {
+
             //pasando los valores al modal
             $('#folioInput').val(folio);
             $('#direccionInput').val(direccion);
             $('#ids').val(direccion);
 
-            console.log($('#editarModal'))
-            //mostrando modal
-            // $('#editarModal').modal('show');
+            $('#modal').modal('show');
         }
 
         function guardarCambios(id) {
-            // Obtener nuevos valores de los campos del modal
-            const nuevoFolio = $('#folioInput').val();
-            const nuevaDireccion = $('#direccionInput').val();
-
-            // Aquí deberías realizar una solicitud PUT a tu API con los nuevos datos
-            // Usa la información de filaSeleccionada.id y los nuevos valores.
-
-            // Una vez completado, cierra el modal
-            $('#editarModal').modal('hide');
+            $.ajax({
+                method: "PUT",
+                url: "URL_DE_TU_API/" + id,
+                data: { folio: $('#folioInput').val(), direccion: $('#direccionInput').val() },
+                success: function (response) {
+                    console.log("Registro actualizado con éxito");
+                },
+                error: function (error) {
+                    console.error("Error al actualizar el registro", error);
+                }
+            });
         }
         function visualizarRegistro(id) {
             console.log('Visualizar registro con ID: ' + id);
