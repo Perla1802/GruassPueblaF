@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas & Nodos</title>
+    <title>Registrar incidente</title>
 
     <!-- Hoja de estilos -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styleFormulario.css">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -18,13 +18,13 @@
 </head>
 
 <body>
-    <h1 class="display-6">Rutas & Nodos</h1>
+    <h1 class="display-6">Agregar Incidente</h1>
 
     <div class="container-xxl container-fluid">
-        <label class="Parametros">Lugar:</label>
+        <label class="Parametros">Lugar del incidente:</label>
         <input type="text" id="origenInput" class="form-control" placeholder="Escribe un lugar">
         <br>
-        <button onclick="trazarRuta()" class="btn btn-primary btn-p">Buscar Corralon</button>
+        <button onclick="trazarRuta()" class="btn btn-primar btn-p">Buscar Corralon</button>
         <hr>
     </div>
 
@@ -34,67 +34,87 @@
         <div class="container-xxl container-fluid" id="map"></div>
     </div>
 
-    <div class="mb-4">
-        <h3 class="text-pink-900 text-4xl font-bold mb-2">Corralón asignado</h3>
-        <label class="block text-xl font-medium text-gray-600">Dirección</label>
-        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" readonly />
+    <div class="mb-4" style="margin-top: 60px;">
+        <h3 class="text-pink-90 text-4xl font-bold mb-2">Corralón asignado</h3>
+        <label class="block text font-medium text-gray-600">Dirección</label>
+        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" readonly/>
         <label class="block text-xl font-medium text-gray-600 mt-2">Teléfono</label>
-        <input type="tel" class="mt-1 p-2 border border-gray-300 rounded w-full" readonly />
+        <input type="tel" class="mt-1 p-2 border border-gray-300 rounded w-full" readonly/>
     </div>
 
-    <!-- Sección Coche implicado -->
     <div class="mb-4">
-        <h3 class="text-pink-900 text-3xl font-bold mb-2">Coche implicado:</h3>
-        <div class="grid grid-cols-2 gap-4 mb-4">
-            <div>
-                <label class="block text-xl font-medium text-gray-600">Marca</label>
-                <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-            </div>
-            <div>
-                <label class="block text-xl font-medium text-gray-600">Modelo</label>
-                <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-            </div>
-            <div>
-                <label class="block text-xl font-medium text-gray-600">Color</label>
-                <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-            </div>
-            <div>
-                <label class="block text-xl font-medium text-gray-600">Matrícula</label>
-                <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-            </div>
-            <div>
-                <label class="block text-xl font-medium text-gray-600">Estado</label>
-                <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-            </div>
-            <div>
-                <label class="block text-xl font-medium text-gray-600">Tipo de coche</label>
-                <select class="mt-1 p-2 border border-gray-300 rounded w-full" disabled>
-                    <option value="grua">Grua</option>
-                    <option value="autobus">Autobus</option>
-                    <option value="coche">Coche</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <!-- Botón de agregar coche -->
-    <button type="button" class="bg-pink-950 text-white p-2 rounded hover:font-bold">
-        Agregar otro coche implicado
-    </button>
-    <!-- Botón de guardar -->
-    <div class="flex justify-start">
-        <button type="button" class="btn btn-danger bg-pink-900 text-white p-2 rounded mt-4 hover:font-bold">
-            Cancelar
+        <h3 class="text-pink-900 text-3xl font-bold mb-2" id="cocheTitle">Coche implicado</h3>
+
+        <div id="cochesContainer"></div>
+
+        <button type="button" onclick="agregarCoche()" class="bg-pink-950 text-white p-2 rounded hover:font-bold mt-4">
+            Agregar coche implicado
         </button>
-        <button type="button"
-            class="btn btn-primary text-2xl bg-pink-900 text-white p-2 mx-10 rounded mt-4 hover:font-bold">
+    </div>
+
+    <div class="flex justify-start">
+        <a href="incidentes.html" class="btn btn-danger bg-pink-900 text-white p-2 rounded mt-4 hover:font-bold">
+            Cancelar
+        </a>
+        <button type="button" class="btn btn-primary text-2xl bg-pink-900 text-white p-2 mx-10 rounded mt-4 hover:font-bold">
             Guardar
         </button>
     </div>
 
-    <footer class="container-xxl container-fluid">
-        <br>
-        <p><strong style="color:blueviolet;">Producto 1</strong> | David Galavíz x Perla Hernández</p>
-    </footer>
+    <script>
+        let contadorCoches = 0;
+
+        function agregarCoche() {
+            // Incrementa el contador global
+            contadorCoches++;
+
+            // Crear el bloque de coche implicado
+            const cocheBlock = document.createElement('div');
+            cocheBlock.className = 'mb-4';
+            cocheBlock.innerHTML = `
+                <h3 class="text-pink-900 text-3x font-bold mb-2">Coche implicado: ${contadorCoches}</h3>
+                <div class="fields-grid">
+                    <div>
+                        <label class="block text-xl font-medium text-gray-600">Marca</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
+                    </div>
+                    <div>
+                        <label class="block text-xl font-medium text-gray-600">Modelo</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
+                    </div>
+                    <div>
+                        <label class="block text-xl font-medium text-gray-600">Color</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
+                    </div>
+                    <div>
+                        <label class="block text-xl font-medium text-gray-600">Matrícula</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
+                    </div>
+                    <div>
+                        <label class="block text-xl font-medium text-gray-600">Estado</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
+                    </div>
+                    <div>
+                        <label class="block text-xl font-medium text-gray-600">Tipo de coche</label>
+                        <select class="mt-1 p-2 border border-gray-300 rounded w-full" onchange="seleccionarTipoCoche(this)">
+                            <option value="grua">Grua</option>
+                            <option value="autobus">Autobus</option>
+                            <option value="coche">Coche</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+
+            // Añade el bloque de coche al contenedor
+            document.getElementById('cochesContainer').appendChild(cocheBlock);
+        }
+
+        function seleccionarTipoCoche(selectElement) {
+            // Aquí puedes manejar la selección del tipo de coche si es necesario
+            console.log(selectElement.value);
+        }
+    </script>
+
 
     <!-- URL del API de Ggoogle Maps -->
     <script async defer
