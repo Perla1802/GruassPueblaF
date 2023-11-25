@@ -81,7 +81,40 @@ Código
 Estilos
 ![FormularioC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/cae7691a-f102-4dba-93dc-76634caa4de2)
 
+# Explicación
+Este código representa una página web para la gestión de incidentes. El sistema utiliza tecnologías como Bootstrap, jQuery y DataTables para crear una interfaz interactiva y tabular de incidentes, permitiendo agregar, editar y visualizar registros de incidentes.
 
+Características Principales:
+
+- Librerías Externas:
+
+jQuery: Utilizado para simplificar la manipulación del DOM y realizar solicitudes Ajax.
+Bootstrap: Proporciona estilos y componentes para el diseño de la página.
+Boxicons CSS: Librería de iconos utilizada para los íconos en la barra de navegación.
+DataTables: Facilita la creación de tablas interactivas con capacidades de búsqueda, filtrado y paginación.
+
+- Barra de Navegación:
+Contiene un menú desplegable con opciones de "Inicio," "Ajustes," y "Salir."
+Interactividad lograda mediante jQuery para mostrar/ocultar el menú en pantallas pequeñas.
+Contenido Principal:
+
+- Visualización de incidentes en una tabla DataTable.
+Botón para agregar nuevos incidentes, enlazando a una página de formulario.
+Modal de edición para modificar registros existentes.
+
+-Modal de Edición:
+Permite la edición de folio y dirección de un incidente.
+Realiza solicitudes Ajax para actualizar los datos en el servidor.
+
+- Funcionalidad Ajax:
+Se utilizan solicitudes Ajax para obtener datos de incidentes y actualizar registros.
+Manejo de errores y mensajes de éxito en la consola.
+
+- Estilos Adicionales:
+Utiliza un archivo de estilos personalizado (styleSliderbar.css) para personalizar la apariencia.
+
+- Responsividad:
+Diseño responsive para adaptarse a diferentes tamaños de pantalla.
 
 
 
