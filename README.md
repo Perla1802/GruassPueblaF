@@ -26,7 +26,7 @@ Como su nombre lo dice, en esta parte el usuario puede loguarse ingresando su co
 Código
 ![login](https://github.com/Perla1802/GruassPueblaF/assets/59744172/13a99e96-eb20-4a0a-9087-ec216363af00)
 
-Explicación
+# Explicación
 jQuery y Bootstrap:
 jQuery: Se incluye la biblioteca jQuery mediante <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>. 
 jQuery es una biblioteca de JavaScript que simplifica la manipulación del DOM y la realización de solicitudes Ajax.
