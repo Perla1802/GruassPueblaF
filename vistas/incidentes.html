@@ -9,14 +9,14 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="../css/styleIncidentesTable.css">
+    <link rel="stylesheet" href="../css/styleSliderbar.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Font Awesome Icons (for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- DataTables-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
@@ -25,47 +25,55 @@
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+
+    
 </head>
 
 <body>
 
     <div class="container-fluid">
-        <div class="row">
-
-            <!-- Barra lateral -->
-            <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
-                <div class="sidebar-sticky" style="height: 100vh;">
-                    <!-- Botón de alternancia para pantallas pequeñas -->
-                    <button class="btn btn-link" id="toggleBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2" style="padding-top: 20px;">
-                            <a class="nav-link active" href="../index.html">
-                                <i class="fas fa-home"></i> Inicio
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-user"></i> Perfil
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-cog"></i> Ajustes
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="#">
-                                <i class="fas fa-sign-out-alt"></i> Salir
-                            </a>
-                        </li>
-                    </ul>
+        <div class="row">          
+            <nav>
+                <div class="logo" style="margin-top: 25px">
+                    <i class="bx bx-menu menu-icon" ></i>
+                    <span class="logo-namee">Bienvenido</span>
+                </div>
+        
+                <div class="sidebar">
+                    <div class="logo">
+                        <i class="bx bx-menu menu-icon"></i>
+                        <span class="logo-name">Bienvenido</span>
+                    </div>
+        
+                    <div class="sidebar-content">
+                        <ul class="lists">
+                            <li class="list">
+                                <a href="/index.html" class="nav-link">
+                                    <i class="bx bx-home-alt icon"></i>
+                                    <span class="link">Inicio</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="#" class="nav-link">
+                                    <i class="bx bx-cog icon icon"></i>
+                                    <span class="link">Ajustes</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="login.html" class="nav-link">
+                                    <i class="bx bx-log-out icon"></i>
+                                    <span class="link">Salir</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+        
+                    </div>
                 </div>
             </nav>
 
             <!-- Contenido principal -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="margin-top: 80px;">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Incidentes</h1>
@@ -215,7 +223,21 @@
             cerrarModal();
         }
     </script>
+    <script>
+        const navBar = document.querySelector("nav"),
+            menuBtns = document.querySelectorAll(".menu-icon"),
+            overlay = document.querySelector(".overlay");
 
+        menuBtns.forEach((menuBtn) => {
+            menuBtn.addEventListener("click", () => {
+                navBar.classList.toggle("open");
+            });
+        });
+
+        overlay.addEventListener("click", () => {
+            navBar.classList.remove("open");
+        });
+    </script>
 </body>
 
 </html>

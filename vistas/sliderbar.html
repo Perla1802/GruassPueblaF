@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com-->
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,29 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sidebar Menu | Side Navigation Bar</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    Bootstrap CSS
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/styleSliderbar.css" />
+    <!-- <link rel="stylesheet" href="../css/styleSliderbar.css" /> -->
     <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css"> -->
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 
     <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script> -->
 
     <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
-</head>
+    <!-- <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" /> -->
+<!-- </head> -->
 
-<body>
+<!-- <body>
     <nav>
         <div class="logo">
             <i class="bx bx-menu menu-icon"></i>
@@ -67,17 +66,17 @@
 
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <section class="overlay"></section>
+    <!-- <section class="overlay"></section> -->
     <!-- Contenido principal -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="padding-top: 100px; margin-right: 30px;">
+    <!-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="padding-top: 100px; margin-right: 30px;">
        
 
-        <a href="formulario.html" class="btn btn-primary">Agregar incidente</a>
+        <a href="formulario.html" class="btn btn-primary">Agregar incidente</a> -->
 
         <!-- Modal -->
-        <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <!-- <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -88,22 +87,22 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Campos de entrada para folio y dirección -->
-                        <input type="text" id="ids" hidden>
+                         Campos de entrada para folio y dirección -->
+                        <!-- <input type="text" id="ids" hidden>
                         <input type="text" id="folioInput" placeholder="Folio">
                         <input type="text" id="direccionInput" placeholder="Dirección">
-                    </div>
-                    <div class="modal-footer">
+                    </div> -->
+                    <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-primary" onclick="guardarCambios(
                             <scrip> const id = $(#ids).value; print(id) </scrip> )">Guardar Cambios</button>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div>
             </div>
-        </div>
+        </div> --> 
 
         <!-- DataTable -->
-        <div class="table-responsive">
+        <!-- <div class="table-responsive">
             <table id="dataTable" class="table">
                 <thead>
                     <tr>
@@ -119,9 +118,9 @@
         </div>
         </main>
         </div>
-        </div>
+        </div> -->
         
-        <script>
+        <!-- <script>
             $(document).ready(function () {
                 var dataTable = $('#dataTable').DataTable({
                     language: {
@@ -162,8 +161,8 @@
                             render: function (data, type, row) {
                                 const idSiniestro = row.idSiniestro;
                                 const folio = row.folio;
-                                const direccion = row.direccion;
-                                // Botones de Acciones
+                                const direccion = row.direccion; -->
+                                <!-- // Botones de Acciones
                                 return `<button class="btn btn-primary btn-sm" onclick="editarRegistro('${idSiniestro}','${folio}','${direccion}')">Editar</button>` +
                                     `<button class="btn btn-info btn-sm ml-2" onclick="visualizarRegistro('${idSiniestro}')">Visualizar</button>`;
                             }
@@ -175,9 +174,9 @@
                 $('#toggleBtn').on('click', function () {
                     $('#sidebar').toggleClass('collapsed');
                 });
-            });
+            }); -->
 
-            function editarRegistro(idSiniestro, folio, direccion) {
+            <!-- function editarRegistro(idSiniestro, folio, direccion) {
 
                 //pasando los valores al modal
                 $('#folioInput').val(folio);
@@ -224,4 +223,4 @@
     </script>
 </body>
 
-</html>
+</html> --> 
