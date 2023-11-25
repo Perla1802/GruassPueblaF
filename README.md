@@ -107,6 +107,7 @@ Para agregar uno o más coches, basta con hacer clic en "Agregar coche implicado
 - Matricula
 - Estado
 - Tipo de choche
+
 Al final guardamos los campos y se podrán visualizar en nuestra tabla, si se desea cancelar se da clic en "Cancelar"
 
 ![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/bd7aa5b1-339a-48c9-8d81-d1e012845e8f)
