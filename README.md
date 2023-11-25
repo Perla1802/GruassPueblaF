@@ -118,6 +118,33 @@ Código
 Estilos
 ![FormularioC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/cae7691a-f102-4dba-93dc-76634caa4de2)
 
+## Descripción:
+Este código HTML representa una página de formulario para registrar incidentes de tráfico. Utiliza tecnologías como Bootstrap, jQuery y Google Maps API para proporcionar una interfaz interactiva para el usuario.
 
+- Características Principales:
 
+1. Librerías Externas:
 
+- jQuery: Utilizado para simplificar la manipulación del DOM y realizar solicitudes Ajax.
+- Bootstrap: Proporciona estilos y componentes para el diseño de la página.
+- Google Maps API: Integrado para mostrar un mapa interactivo y proporcionar funcionalidades relacionadas con la ubicación.
+
+2. Estilos Personalizados:
+Se utiliza un archivo de estilos personalizado (styleFormulario.css) para ajustar la apariencia del formulario.
+
+4. Campos del Formulario:
+- Lugar del incidente con un botón para buscar corralones cercanos.
+- Mapa interactivo que muestra la ubicación del incidente.
+- Información del corralón asignado (dirección y teléfono).
+- Registro de coches implicados con la opción de agregar múltiples coches.
+- Funcionalidades Adicionales:
+
+Cada coche implicado se agrega dinámicamente con un botón de "Agregar coche."
+Se proporciona una lista desplegable para seleccionar el tipo de coche (grúa, autobús, coche).
+
+5. Botones de Acción:
+- Botón "Cancelar" para regresar a la página de incidentes.
+- Botón "Guardar" para almacenar la información del incidente.
+
+6. Archivos necesarios
+El archivo main.js contiene funciones relacionadas con la funcionalidad del mapa. Asegurarse de tener acceso a este archivo y que esté correctamente configurado.
