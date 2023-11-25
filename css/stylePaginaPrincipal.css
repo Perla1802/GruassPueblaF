@@ -22,6 +22,9 @@
     --text_paragraph: 16px;
     --box_shadow-primary: 0px 6px 50px -20px rgba(0,0,0,0.2);
 }
+body {
+    margin: 0; /* Asegura que no haya márgenes predeterminados en el cuerpo */
+}
 
 header {
     width: 100%; /* Cambiado a 100% del ancho viewport */
@@ -50,20 +53,41 @@ footer {
     margin-top: -100px;
 }
 
-.container__Footer{
-    width: 100%; 
-    max-width: 1200px;
-    height: 100%;
-    margin: auto;
+.container__Footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 0px 20px;
-
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img,
+.image__cover img {
+    width: 150px;
+    max-width: 100%;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
 .menu span {
-    display: block; /* Muestra los elementos <span> como bloques, uno debajo del otro */
-    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-image-container {
+    display: flex;
+    align-items: center;
+}
+
+.footer-image-container img {
+    width: 150px;
+    max-width: 100%;
 }
 
 .logo{
@@ -74,8 +98,9 @@ footer {
 }
 
 .logo img{
-    width: 200px;
+    width: 150px;
 }
+
 
 .menu{
     display: flex;
@@ -153,11 +178,11 @@ footer {
 
 .text__cover{
     width: 100%;
-    padding-right: 150px;
+    padding: 0 20px; /* Ajusta el relleno del texto de la portada */
 }
 
 .text__cover h1{
-    font-size: 50px;
+    font-size: 30px;
     color: var(--color_text-primary);
 }
 
@@ -190,8 +215,29 @@ footer {
 
 .image__cover{
     width: 100%;
+    
 }
 
 .image__cover img{
-    width: 550px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Media Query para dispositivos más pequeños */
+@media only screen and (max-width: 768px) {
+    header {
+        height: 60px; /* Ajusta la altura del encabezado para pantallas más pequeñas */
+    }
+
+    .container__header {
+        padding: 0px 10px; /* Ajusta el relleno del contenedor del encabezado */
+    }
+
+    .text__cover {
+        padding: 0 10px; /* Ajusta el relleno del texto de la portada para pantallas más pequeñas */
+    }
+
+    .menu span {
+        font-size: 14px; /* Ajusta el tamaño del texto del menú para pantallas más pequeñas */
+    }
 }
