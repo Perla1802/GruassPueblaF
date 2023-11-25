@@ -35,7 +35,7 @@ function initMap() {
       longitud: -98.188391,
     },
   ];
-  
+
   // Creamos un nuevo mapa.
   mapa = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 19.044774, lng: -98.198309 }, // Cordenadas centrales del mapa {Centro de Puebla}.
@@ -60,7 +60,7 @@ function agregarMarcador(nombre, latitud, longitud) {
       scaledSize: new google.maps.Size(50, 50), // Tamaño del marcador
     }
   });
-  
+
 
 }
 
@@ -69,7 +69,7 @@ function trazarRuta() {
   // Treamos los lugares al que le vamos a crear la ruta.
   const origen = document.getElementById("origenInput").value;
   const destino = document.getElementById("destinoInput").value;
-  
+
 
   // Servicio que solicita las rutas y las calcula.
   const directionsService = new google.maps.DirectionsService();
@@ -77,11 +77,12 @@ function trazarRuta() {
   const directionsRenderer = new google.maps.DirectionsRenderer({
     polylineOptions: {
       strokeColor: '#aa6581' // Color  para la línea de la ruta
-    },});
+    },
+  });
 
   // Establecemos el lugar donde se van a renderizar las rutas.
   directionsRenderer.setMap(mapa);
-  
+
   // Le damos las direcciones para que sean calculadas.
   directionsService.route(
     {

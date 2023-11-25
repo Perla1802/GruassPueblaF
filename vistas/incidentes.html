@@ -7,7 +7,7 @@
     <title>Incidentes</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
+
     <!-- Estilos -->
     <link rel="stylesheet" href="../css/styleIncidentesTable.css">
 
@@ -81,7 +81,7 @@
                                 <!-- Campos de entrada para folio y dirección -->
                                 <input type="text" id="ids" hidden>
                                 <p>Folio: <input type="text" id="folioInput" placeholder="Folio"> </p>
-                                <p>Dirección: <input type="text" id="direccionInput" placeholder="Dirección"> </p>                        
+                                <p>Dirección: <input type="text" id="direccionInput" placeholder="Dirección"> </p>
                             </div>
                             <div class="modal-footer">
                                 <button id="cerrar" type="button" class="btn btn-danger" onclick="cerrarModal()">
@@ -109,7 +109,7 @@
                         <tbody></tbody>
                     </table>
                 </div>
-                
+
             </main>
 
         </div>
@@ -118,7 +118,6 @@
     <script>
         $(document).ready(function () {
 
-            // Configurar DataTable
             var dataTable = $('#dataTable').DataTable({
                 language: {
                     "sProcessing": "Procesando...",
@@ -170,10 +169,12 @@
             $('#toggleBtn').on('click', function () {
                 $('body').toggleClass('sidebar-collapsed');
             });
+
         });
 
-        function cerrarModal(){                
+        function cerrarModal() {
             $("#modal").modal('hide')
+            window.location.href = './incidentes.html';
         }
 
         function editarRegistro(idSiniestro, folio, direccion) {
@@ -184,10 +185,11 @@
             $('#ids').val(idSiniestro);
 
             $('#modal').modal('show');
+
         }
 
         function guardarCambios(idSiniestro) {
-            const fol = $('#folioInput').val(); 
+            const fol = $('#folioInput').val();
             const dir = $('#direccionInput').val();
 
             $.ajax({
@@ -195,7 +197,11 @@
                 url: `http://localhost:3001/siniestro/update/${idSiniestro}`,
                 data: { folio: fol, direccion: dir },
                 success: function (response) {
-                    console.log("Registro actualizado con éxito",response);
+                    console.log("Registro actualizado con éxito", response);
+
+                    var dataTable = $('#dataTable').DataTable();
+                    dataTable.destroy();
+                    $('#dataTable').DataTable();
                 },
                 error: function (error) {
                     console.error("Error al actualizar el registro", error);
