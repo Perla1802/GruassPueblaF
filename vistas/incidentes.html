@@ -45,10 +45,6 @@
                                 <i class="fas fa-home"></i> Inicio
                             </a>
                         </li>
-<<<<<<< HEAD
-                        <!-- Tus otros elementos de navegación -->
-=======
->>>>>>> 4131a6dc251a4ce906d38fd46394d6b722840bd8
                         <li class="nav-item mb-2">
                             <a class="nav-link" href="#">
                                 <i class="fas fa-user"></i> Perfil
@@ -176,15 +172,15 @@
             $('#toggleBtn').on('click', function () {
                 $('#sidebar').toggleClass('collapsed');
             });
+            
+            dataTable.draw();
         });
 
-<<<<<<< HEAD
-=======
         function cerrarModal(){                
             $("#modal").modal('hide')
+            window.location.href = './incidentes.html'
         }
 
->>>>>>> 4131a6dc251a4ce906d38fd46394d6b722840bd8
         function editarRegistro(idSiniestro, folio, direccion) {
 
             //pasando los valores al modal
@@ -195,17 +191,9 @@
             $('#modal').modal('show');
         }
 
-<<<<<<< HEAD
-        function guardarCambios() {
-            // Obtener nuevos valores de los campos del modal
-            const nuevoFolio = $('#folioInput').val();
-            const nuevaDireccion = $('#direccionInput').val();
-            const id = $('#ids').val(); // Corregir esta línea para obtener correctamente el valor del ID
-=======
         function guardarCambios(idSiniestro) {
             const fol = $('#folioInput').val(); 
             const dir = $('#direccionInput').val();
->>>>>>> 4131a6dc251a4ce906d38fd46394d6b722840bd8
 
             $.ajax({
                 method: "PUT",
