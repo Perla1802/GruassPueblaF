@@ -35,6 +35,10 @@
             <!-- Barra lateral -->
             <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
                 <div class="sidebar-sticky" style="height: 100vh;">
+                    <!-- Botón de alternancia para pantallas pequeñas -->
+                    <button class="btn btn-link" id="toggleBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2" style="padding-top: 20px;">
                             <a class="nav-link active" href="../index.html">
@@ -117,7 +121,6 @@
 
     <script>
         $(document).ready(function () {
-
             var dataTable = $('#dataTable').DataTable({
                 language: {
                     "sProcessing": "Procesando...",
@@ -167,14 +170,15 @@
 
             // Toggle para colapsar/expandir el contenido principal en pantallas pequeñas
             $('#toggleBtn').on('click', function () {
-                $('body').toggleClass('sidebar-collapsed');
+                $('#sidebar').toggleClass('collapsed');
             });
-
+            
+            dataTable.draw();
         });
 
         function cerrarModal() {
             $("#modal").modal('hide')
-            window.location.href = './incidentes.html';
+            window.location.href = './incidentes.html'
         }
 
         function editarRegistro(idSiniestro, folio, direccion) {
