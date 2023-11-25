@@ -60,27 +60,6 @@ Código
 Estilos
 ![RegistroC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/138956cc-7bdc-4255-bd49-84c2cecb4b12)
 
-## Agregar Incidente
-Esta página se muestra dando clic en "Agregar incidente" de la página antes mostrada.
-Se nos piden varios campos, en primera, la dirección en la que pasó el accidente y después nos arroja la ubicación en el mapa.
-De manera automática se llenan los campos que corresponde al corralón que se halla asignado.
-Para agregar uno o más coches, basta con hacer clic en "Agregar coche implicado" y se llenan los siguientes campos:
-- Marca
-- Modelo
-- Color
-- Matricula
-- Estado
-- Tipo de choche
-Al final guardamos los campos y se podrán visualizar en nuestra tabla, si se desea cancelar se da clic en "Cancelar"
-
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/bd7aa5b1-339a-48c9-8d81-d1e012845e8f)
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/18948c81-14ac-4c2d-9d23-925a9a7efdad)
-
-Código
-![Formulario](https://github.com/Perla1802/GruassPueblaF/assets/59744172/16adea9d-1060-4093-b6a0-1fe382c7a465)
-Estilos
-![FormularioC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/cae7691a-f102-4dba-93dc-76634caa4de2)
-
 # Explicación
 Este código representa una página web para la gestión de incidentes. El sistema utiliza tecnologías como Bootstrap, jQuery y DataTables para crear una interfaz interactiva y tabular de incidentes, permitiendo agregar, editar y visualizar registros de incidentes.
 
@@ -102,7 +81,7 @@ Contenido Principal:
 Botón para agregar nuevos incidentes, enlazando a una página de formulario.
 Modal de edición para modificar registros existentes.
 
--Modal de Edición:
+- Modal de Edición:
 Permite la edición de folio y dirección de un incidente.
 Realiza solicitudes Ajax para actualizar los datos en el servidor.
 
@@ -115,6 +94,29 @@ Utiliza un archivo de estilos personalizado (styleSliderbar.css) para personaliz
 
 - Responsividad:
 Diseño responsive para adaptarse a diferentes tamaños de pantalla.
+
+
+## Agregar Incidente
+Esta página se muestra dando clic en "Agregar incidente" de la página antes mostrada.
+Se nos piden varios campos, en primera, la dirección en la que pasó el accidente y después nos arroja la ubicación en el mapa.
+De manera automática se llenan los campos que corresponde al corralón que se halla asignado.
+Para agregar uno o más coches, basta con hacer clic en "Agregar coche implicado" y se llenan los siguientes campos:
+- Marca
+- Modelo
+- Color
+- Matricula
+- Estado
+- Tipo de choche
+Al final guardamos los campos y se podrán visualizar en nuestra tabla, si se desea cancelar se da clic en "Cancelar"
+
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/bd7aa5b1-339a-48c9-8d81-d1e012845e8f)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/18948c81-14ac-4c2d-9d23-925a9a7efdad)
+
+Código
+![Formulario](https://github.com/Perla1802/GruassPueblaF/assets/59744172/16adea9d-1060-4093-b6a0-1fe382c7a465)
+Estilos
+![FormularioC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/cae7691a-f102-4dba-93dc-76634caa4de2)
+
 
 
 
