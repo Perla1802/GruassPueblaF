@@ -1,4 +1,4 @@
-/* Estilos para la barra lateral cuando está contraída */
+/* Estilos para la barra lateral cuando está contraída
 body.sidebar-collapsed #sidebar {
   width: 80px;
   transition: width 0.5s;
@@ -59,4 +59,4 @@ body.sidebar-collapsed #sidebar .nav-link i {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-}
+} */
