@@ -33,13 +33,17 @@
             <!-- Barra lateral -->
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
                 <div class="sidebar-sticky" style="height: 100vh;">
+                    <!-- Botón de alternancia para pantallas pequeñas -->
+                    <button class="btn btn-link" id="toggleBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2" style="padding-top: 20px;">
                             <a class="nav-link active" href="#">
                                 <i class="fas fa-home"></i> Bienvenido
                             </a>
                         </li>
-
+                        <!-- Tus otros elementos de navegación -->
                         <li class="nav-item mb-2">
                             <a class="nav-link" href="#">
                                 <i class="fas fa-user"></i> Perfil
@@ -57,7 +61,6 @@
                                 <i class="fas fa-sign-out-alt"></i> Salir
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </nav>
@@ -67,7 +70,6 @@
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Incidentes</h1>
-
                 </div>
 
                 <a href="/Formulario.html" class="btn btn-primary">Agregar incidente</a>
@@ -98,7 +100,6 @@
                     </div>
                 </div>
 
-
                 <!-- DataTable -->
                 <div class="table-responsive">
                     <table id="dataTable" class="table">
@@ -120,8 +121,6 @@
 
     <script>
         $(document).ready(function () {
-
-            // Configurar DataTable
             var dataTable = $('#dataTable').DataTable({
                 language: {
                     "sProcessing": "Procesando...",
@@ -172,12 +171,12 @@
 
             // Toggle para colapsar/expandir el contenido principal en pantallas pequeñas
             $('#toggleBtn').on('click', function () {
-                $('body').toggleClass('sidebar-collapsed');
+                $('#sidebar').toggleClass('collapsed');
             });
         });
 
-        function editarRegistro(idSiniestro,folio,direccion) {
-            
+        function editarRegistro(idSiniestro, folio, direccion) {
+
             //pasando los valores al modal
             $('#folioInput').val(folio);
             $('#direccionInput').val(direccion);
@@ -188,10 +187,11 @@
             // $('#editarModal').modal('show');
         }
 
-        function guardarCambios(id) {
+        function guardarCambios() {
             // Obtener nuevos valores de los campos del modal
             const nuevoFolio = $('#folioInput').val();
             const nuevaDireccion = $('#direccionInput').val();
+            const id = $('#ids').val(); // Corregir esta línea para obtener correctamente el valor del ID
 
             // Aquí deberías realizar una solicitud PUT a tu API con los nuevos datos
             // Usa la información de filaSeleccionada.id y los nuevos valores.
