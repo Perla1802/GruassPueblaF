@@ -9,10 +9,10 @@
 }
 
 :root{
-    --color_text-primary: #AB29CA;
-    --color_text-secundary: #101E2C;
+    --color_text-primary: #A61449;
+    --color_text-secundary: #aa6908;
     --color_text-tertiary: #485663;
-    --main_color-primary: #9A00BF;
+    --main_color-primary: #A61449;
     --main_color-secundary: #f2f2f2;
     --background-color: #FAFBFE;
     --lowText_font_size: 16px;
@@ -22,15 +22,20 @@
     --text_paragraph: 16px;
     --box_shadow-primary: 0px 6px 50px -20px rgba(0,0,0,0.2);
 }
-
-header{
-    width: 100%;
-    height: 100px;
-    position: fixed;
-    z-index: 100;
+body {
+    margin: 0; /* Asegura que no haya márgenes predeterminados en el cuerpo */
 }
 
-.container__header{
+header {
+    width: 100%; /* Cambiado a 100% del ancho viewport */
+    height: 100px;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+    background-color: white; /* Fondo blanco del header */
+}
+
+.container__header {
+    width: 100%; /* Cambiado a 100% del ancho viewport */
     max-width: 1200px;
     height: 100%;
     margin: auto;
@@ -38,7 +43,51 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
-    background-color: white;
+}
+footer {
+    width: 100%; 
+    height: 100px;
+    transition: background-color 0.3s ease;
+    z-index: 100;
+    background-color: white; 
+    margin-top: -100px;
+}
+
+.container__Footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img,
+.image__cover img {
+    width: 150px;
+    max-width: 100%;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-image-container {
+    display: flex;
+    align-items: center;
+}
+
+.footer-image-container img {
+    width: 150px;
+    max-width: 100%;
 }
 
 .logo{
@@ -49,8 +98,9 @@ header{
 }
 
 .logo img{
-    width: 200px;
+    width: 150px;
 }
+
 
 .menu{
     display: flex;
@@ -86,6 +136,7 @@ header{
     border: 2px solid var(--main_color-primary);
     border-radius: 8px;
     font-weight: 500;
+    color: #aa6908;
     margin: 0px 20px;
     transition: all 300ms;
 }
@@ -111,7 +162,7 @@ header{
 /*portada de inicio*/
 
 .container__cover{
-    padding-top: 100px;
+    padding-top: 1px;
     padding-bottom: 100px;
     background: var(--main_color-secundary);
 }
@@ -119,7 +170,7 @@ header{
 .cover{
     max-width: 1200px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     padding: 0px 20px;
@@ -127,12 +178,12 @@ header{
 
 .text__cover{
     width: 100%;
-    padding-right: 150px;
+    padding: 0 20px; /* Ajusta el relleno del texto de la portada */
 }
 
 .text__cover h1{
-    font-size: 50px;
-    color: var(--color_text-secundary);
+    font-size: 35px;
+    color: var(--color_text-primary);
 }
 
 .text__cover p{
@@ -164,8 +215,29 @@ header{
 
 .image__cover{
     width: 100%;
+    
 }
 
 .image__cover img{
-    width: 550px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Media Query para dispositivos más pequeños */
+@media only screen and (max-width: 768px) {
+    header {
+        height: 60px; /* Ajusta la altura del encabezado para pantallas más pequeñas */
+    }
+
+    .container__header {
+        padding: 0px 10px; /* Ajusta el relleno del contenedor del encabezado */
+    }
+
+    .text__cover {
+        padding: 0 10px; /* Ajusta el relleno del texto de la portada para pantallas más pequeñas */
+    }
+
+    .menu span {
+        font-size: 14px; /* Ajusta el tamaño del texto del menú para pantallas más pequeñas */
+    }
 }
