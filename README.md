@@ -26,7 +26,7 @@ Como su nombre lo dice, en esta parte el usuario puede loguarse ingresando su co
 Código
 ![login](https://github.com/Perla1802/GruassPueblaF/assets/59744172/13a99e96-eb20-4a0a-9087-ec216363af00)
 
-# Explicación
+## Explicación
 jQuery y Bootstrap:
 jQuery: Se incluye la biblioteca jQuery mediante <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>. 
 jQuery es una biblioteca de JavaScript que simplifica la manipulación del DOM y la realización de solicitudes Ajax.
@@ -47,7 +47,7 @@ Se utiliza jQuery para seleccionar elementos del DOM y realizar operaciones.
 La función handleLogin() realiza una solicitud al servidor para autenticar al usuario.
 Maneja diferentes respuestas del servidor, mostrando mensajes de error o redirigiendo al usuario.
 
-## Página de incidentes
+# Página de incidentes
 Esta página se visualiza una vez que el usuario se halla logueado, en la cual se muestra un sliderbar que puede colapasrse en pantallas más pequeñas, contiene 3 secciones: Inicio, ajustes y salir.
 En la parte derecha podemos ver la visualización de los datos en los que se consumen las Apis através de un DataTable, en la que se pueden hacer búsquedas, conteo de registros y su edición.
 Además. cuenta con un botón en el que se puede agregar un nuevo registro.
