@@ -121,7 +121,7 @@ Estilos
 ## Descripción:
 Este código HTML representa una página de formulario para registrar incidentes de tráfico. Utiliza tecnologías como Bootstrap, jQuery y Google Maps API para proporcionar una interfaz interactiva para el usuario.
 
-- Características Principales:
+Características Principales:
 
 1. Librerías Externas:
 
@@ -130,15 +130,16 @@ Este código HTML representa una página de formulario para registrar incidentes
 - Google Maps API: Integrado para mostrar un mapa interactivo y proporcionar funcionalidades relacionadas con la ubicación.
 
 2. Estilos Personalizados:
+
 Se utiliza un archivo de estilos personalizado (styleFormulario.css) para ajustar la apariencia del formulario.
 
-4. Campos del Formulario:
+3. Campos del Formulario:
 - Lugar del incidente con un botón para buscar corralones cercanos.
 - Mapa interactivo que muestra la ubicación del incidente.
 - Información del corralón asignado (dirección y teléfono).
 - Registro de coches implicados con la opción de agregar múltiples coches.
-- Funcionalidades Adicionales:
 
+4. Funcionalidades Adicionales:
 Cada coche implicado se agrega dinámicamente con un botón de "Agregar coche."
 Se proporciona una lista desplegable para seleccionar el tipo de coche (grúa, autobús, coche).
 
