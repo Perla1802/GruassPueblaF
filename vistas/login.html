@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body class="bg-light">
@@ -39,47 +44,44 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <script>
-
         async function handleLogin() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorDiv = document.getElementById("error");
+            const username = $('#username').val();
+            const password = $('#password').val();
+            const errorDiv = $('#error');
 
             if (username && password) {
                 try {
-                    const response = await fetch(`http://localhost:3001/usuarios/login/${username}/${password}`)
-                    const data = await response.json()
-                    if (response.ok) {
-                        if (Object.keys(data.content).length > 0) {
+                    const response = await $.ajax({
+                        url: `http://localhost:3001/usuarios/login/${username}/${password}`,
+                        method: 'GET',
+                        dataType: 'json'
+                    });
+
+                    if (response.msg === 'Éxito.') {
+                        if (Object.keys(response.content).length > 0) {
                             console.log("Inicio de sesión exitoso");
-                            const { nombre, apellido, tipo } = data.content;
+                            const { nombre, apellido, tipo } = response.content;
 
                             // Almacena los datos en el almacenamiento local
                             localStorage.setItem('nombre', nombre);
                             localStorage.setItem('apellido', apellido);
                             localStorage.setItem('tipo', tipo);
 
-                            window.location.href = './incidentes.html';
-
+                            window.location.href = './sliderbar.html';
                         } else {
-                            errorDiv.innerHTML = "Contraseña o usuario invalido.";
+                            errorDiv.html("Contraseña o usuario invalido.");
                         }
                     } else {
-                        errorDiv.innerHTML = "Error intenta más tarde.";
+                        errorDiv.html("Error intenta más tarde.");
                     }
-                } catch (erno) {
-                    console.log({ error: erno })
+                } catch (error) {
+                    console.log({ error });
                 }
             } else {
-                errorDiv.innerHTML = "Ingresa todos los campos.";
+                errorDiv.html("Ingresa todos los campos.");
             }
         }
-
     </script>
 
 </body>
