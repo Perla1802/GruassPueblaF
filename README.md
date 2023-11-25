@@ -2,7 +2,7 @@
 
 Esta página está destinada a la gestión de Gruas para la Secretaría de Movilidad y transporte, en la que se busca una eficiencia en cuanto a  la asignación de corralones a los incidentes.
 
-#Requerimientos antes de ejecutar el proyecto:
+# Requerimientos antes de ejecutar el proyecto:
 Se recomienda seguir los pasos y descargar los archivos del siguiente repositorio, en los que se muestra detalladamente cómo hacerlo.
 https://github.com/Davix00/api-gruas
 ## Comandos a ejecutar
