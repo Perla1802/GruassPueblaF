@@ -38,11 +38,31 @@
             <h1 id="title">Incidente</h1>
         </div>
 
+        <div class="modal fade" id="modal" role="edit" aria-labelledby="Editar" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Error en la solicitud</h5>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-center">
+                        <!-- Advertencia -->
+                        <input type="text" id="ids" hidden>
+                        <p>Ingresa todos los datos.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="cerrar" type="button" class="btn btn-warning" onclick="cerrarModal()">
+                            <i class="fa fa-times" aria-hidden="true"></i> Aceptar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="mb-3">
-                    <p>Dirección: <input type="text" id="origenInput" class="form-control" placeholder="Escribe un lugar"></p>
+                    <p>Dirección: <input type="text" id="origenInput" class="form-control"
+                            placeholder="Escribe un lugar"></p>
                 </div>
             </div>
             <div class="col-md-12">
@@ -62,23 +82,25 @@
             </div>
         </div>
 
+        <!-- Reportador
+        <h3 class="subtitle">Reportador</h3> -->
         <!-- Corralon Asignado -->
         <h3 class="subtitle">Corralón asignado</h3>
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="marca" class="form-label">Marca</label>
-                    <input type="text" class="form-control" id="marca">
+                    <label for="Direccion" class="form-label">Direccion</label>
+                    <input type="text" class="form-control" id="corralon_direccion">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" class="form-control" id="modelo">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="corralon_telefono">
                 </div>
             </div>
         </div>
-        
+
         <!-- Vehiculo -->
         <h3 class="subtitle">Características del vehiculo:</h3>
         <div class="row">
@@ -118,26 +140,70 @@
                 <div class="mb-3">
                     <label for="tipoCoche" class="form-label">Tipo de coche</label>
                     <select class="form-select" id="tipoCoche" onchange="seleccionarTipoCoche(this)">
-                        <option value="grua">Grua</option>
-                        <option value="autobus">Autobus</option>
-                        <option value="coche">Coche</option>
+                        <option value="1">Sedan</option>
+                        <option value="2">Trailer</option>
+                        <option value="4">Camioneta</option>
                     </select>
                 </div>
             </div>
         </div>
-        
+
         <!-- Botones Finales -->
         <div class="row">
             <button type="button" onclick="regresar()" class="btn btn-danger"> Cancelar </button>
-            <button type="button" class="btn btn-primary"> Guardar </button>    
+            <button type="button" class="btn btn-primary" onclick="guardar()"> Guardar </button>
         </div>
     </div>
-        
+
     <script>
-        function regresar () {
+        function cerrarModal() {
+            $("#modal").modal('hide')
+        }
+
+        function regresar() {
             window.location.href = './incidentes.html'
         }
-    </script>    
+
+        async function guardar() {
+            try {
+                const marca = $('#marca').val();
+                const modelo = $('#modelo').val();
+                const color = $('#color').val();
+                const matricula = $('#matricula').val();
+                const estado = $('#estado').val();
+                const tipoCoche = $('#tipoCoche').val();
+                const direccion = $('#origenInput').val();
+
+                if (marca && modelo && color && matricula) {
+                    $.ajax({
+                        url: 'http://localhost:3001/siniestro/create',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ direccion: direccion }),
+                        success: function (data) {
+                            console.log('Inserción del incidente correcta.', data);
+                            $('#marca').val('');
+                            $('#modelo').val('');
+                            $('#color').val('');
+                            $('#matricula').val('');
+                            $('#estado').val('');
+                            $('#tipoCoche').val('');
+                            $('#origenInput').val('');
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.error('Error en la solicitud:', textStatus, errorThrown);
+                        }
+                    });
+                } else {
+                    $('#modal').modal('toggle');
+                    console.log('Faltan datos obligatorios.');
+                }
+            } catch (error) {
+                console.log('Error:', error);
+            }
+        }
+    </script>
+    
     <!-- URL del API de Ggoogle Maps -->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp1GHx7r5x2HOHdckpcZeUjBZ7QUyMCoc&callback=initMap"></script>
@@ -145,4 +211,5 @@
     <script src="../js/main.js"></script>
 
 </body>
+
 </html>

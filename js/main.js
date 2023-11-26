@@ -75,7 +75,11 @@ function calcularRutas(origen, destinos, callback) {
                 // Ordenar las respuestas por duración y obtener la más corta
                 respuestas.sort((a, b) => a.response.routes[0].legs[0].duration.value - b.response.routes[0].legs[0].duration.value);
                 const rutaMasCorta = respuestas[0];
-
+                if(rutaMasCorta) {
+                  $('#corralon_direccion').val(rutaMasCorta.response.routes[0].legs[0].end_address);
+                  $('#corralon_telefono').val(destinos[rutaMasCorta.index].telefono);
+                }
+                
                 // Llamar al callback con la ruta más corta
                 callback(rutaMasCorta);
             }
@@ -102,7 +106,6 @@ function trazarRuta() {
     const duration = response.routes[0].legs[0].duration.text;
 
     document.getElementById("tiempoViaje").textContent = "Tiempo estimado: " + duration;
-    document.getElementById("origenInput").value = ""
   });
 }
 
