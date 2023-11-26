@@ -22,6 +22,7 @@
     --text_paragraph: 16px;
     --box_shadow-primary: 0px 6px 50px -20px rgba(0,0,0,0.2);
 }
+
 body {
     margin: 0; /* Asegura que no haya márgenes predeterminados en el cuerpo */
 }
@@ -146,21 +147,7 @@ footer {
     background: var(--main_color-primary);
 }
 
-.menu .socialMedia{
-    margin: 0px 10px;
-}
-
-.menu .socialMedia a{
-    margin: 0px 4px;
-}
-
-.menu .socialMedia img{
-    width: 20px;
-}
-
-
 /*portada de inicio*/
-
 .container__cover{
     padding-top: 1px;
     padding-bottom: 100px;

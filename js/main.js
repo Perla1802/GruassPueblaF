@@ -106,4 +106,5 @@ function trazarRuta() {
   });
 }
 
-initMap(); //Inicializamos el mapa.
+initMap();
+ //Inicializamos el mapa.

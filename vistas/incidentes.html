@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="../css/styleSliderbar.css">
+    <link rel="stylesheet" href="../css/stylesIncidentes.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -26,61 +26,38 @@
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 
-    
+
 </head>
 
 <body>
-
     <div class="container-fluid">
-        <div class="row">          
-            <nav>
-                <div class="logo" style="margin-top: 25px">
-                    <i class="bx bx-menu menu-icon" ></i>
-                    <span class="logo-namee">Bienvenido</span>
-                </div>
-        
-                <div class="sidebar">
+
+        <div class="row">
+            <header>
+                <div class="container__header">
                     <div class="logo">
-                        <i class="bx bx-menu menu-icon"></i>
-                        <span class="logo-name">Bienvenido</span>
+                        <a href="#">
+                            <img src="../assets/images/Logo/logoGobierno.png" alt="">
+                        </a>
                     </div>
-        
-                    <div class="sidebar-content">
-                        <ul class="lists">
-                            <li class="list">
-                                <a href="/index.html" class="nav-link">
-                                    <i class="bx bx-home-alt icon"></i>
-                                    <span class="link">Inicio</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="#" class="nav-link">
-                                    <i class="bx bx-cog icon icon"></i>
-                                    <span class="link">Ajustes</span>
-                                </a>
-                            </li>
-                            <li class="list">
-                                <a href="login.html" class="nav-link">
-                                    <i class="bx bx-log-out icon"></i>
-                                    <span class="link">Salir</span>
-                                </a>
-                            </li>
-                            
-                        </ul>
-        
+                    <div class="menu">
+                        <a href="../index.html" class="btn__quote">Inicio</a>
                     </div>
                 </div>
-            </nav>
+            </header>
+        </div>
 
+        <div class="row">
             <!-- Contenido principal -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="margin-top: 80px;">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Incidentes</h1>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-12" style="margin-top: 20px;">
+                <div class="mb-3 border-bottom">
+                    <h1 id="title">Registro</h1>
                 </div>
 
-                <a href="./formulario.html" class="btn btn-primary">Agregar incidente</a>
-                <p></p>
+                <a href="./formulario.html" class="btn"
+                    style="border-color: #a61449; background-color: #a61449; color: white; margin-bottom: 30px;">Agregar
+                    incidente</a>
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="modal" role="edit" aria-labelledby="Editar" aria-hidden="true">
@@ -170,7 +147,7 @@
                             const folio = row.folio;
                             const direccion = row.direccion;
                             // Botones de Acciones
-                            return `<button class="btn btn-primary btn-sm" onclick="editarRegistro(${idSiniestro},'${folio}','${direccion}')">Editar</button>`;
+                            return `<button class="btn btn-warning btn-sm" onclick="editarRegistro(${idSiniestro},'${folio}','${direccion}')">Editar</button>`;
                         }
                     }
                 ]
@@ -180,7 +157,7 @@
             $('#toggleBtn').on('click', function () {
                 $('#sidebar').toggleClass('collapsed');
             });
-            
+
             dataTable.draw();
         });
 
@@ -222,21 +199,6 @@
 
             cerrarModal();
         }
-    </script>
-    <script>
-        const navBar = document.querySelector("nav"),
-            menuBtns = document.querySelectorAll(".menu-icon"),
-            overlay = document.querySelector(".overlay");
-
-        menuBtns.forEach((menuBtn) => {
-            menuBtn.addEventListener("click", () => {
-                navBar.classList.toggle("open");
-            });
-        });
-
-        overlay.addEventListener("click", () => {
-            navBar.classList.remove("open");
-        });
     </script>
 </body>
 

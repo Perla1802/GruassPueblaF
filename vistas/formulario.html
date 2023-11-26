@@ -18,104 +18,126 @@
 </head>
 
 <body>
-    <h1 class="display-6">Agregar Incidente</h1>
-
-    <div class="container-xxl container-fluid">
-        <label class="Parametros">Lugar del incidente:</label>
-        <input type="text" id="origenInput" class="form-control" placeholder="Escribe un lugar">
-        <br>
-        <button onclick="trazarRuta()" class="btn btn-primar btn-p">Buscar Corralon</button>
-        <hr>
-    </div>
-
-    <div class="Mapa">
-        <div id="tiempoViaje"></div> <!-- Este div mostrará el tiempo de viaje -->
-        <br>
-        <div class="container-xxl container-fluid" id="map"></div>
-    </div>
-
-    <div class="mb-4" style="margin-top: 60px;">
-        <h3 class="text-pink-90 text-4xl font-bold mb-2">Corralón asignado</h3>
-        <label class="block text font-medium text-gray-600">Dirección</label>
-        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" readonly/>
-        <label class="block text-xl font-medium text-gray-600 mt-2">Teléfono</label>
-        <input type="tel" class="mt-1 p-2 border border-gray-300 rounded w-full" readonly/>
-    </div>
-
-    <div class="mb-4">
-        <h3 class="text-pink-900 text-3xl font-bold mb-2" id="cocheTitle">Coche implicado</h3>
-
-        <div id="cochesContainer"></div>
-
-        <button type="button" onclick="agregarCoche()" class="bg-pink-950 text-white p-2 rounded hover:font-bold mt-4">
-            Agregar coche implicado
-        </button>
-    </div>
-
-    <div class="flex justify-start">
-        <a href="incidentes.html" class="btn btn-danger bg-pink-900 text-white p-2 rounded mt-4 hover:font-bold">
-            Cancelar
-        </a>
-        <button type="button" class="btn btn-primary text-2xl bg-pink-900 text-white p-2 mx-10 rounded mt-4 hover:font-bold">
-            Guardar
-        </button>
-    </div>
-
-    <script>
-        let contadorCoches = 0;
-
-        function agregarCoche() {
-            // Incrementa el contador global
-            contadorCoches++;
-
-            // Crear el bloque de coche implicado
-            const cocheBlock = document.createElement('div');
-            cocheBlock.className = 'mb-4';
-            cocheBlock.innerHTML = `
-                <h3 class="text-pink-900 text-3x font-bold mb-2">Coche implicado: ${contadorCoches}</h3>
-                <div class="fields-grid">
-                    <div>
-                        <label class="block text-xl font-medium text-gray-600">Marca</label>
-                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
+    <div class="container-fluid">
+        <div class="row">
+            <header>
+                <div class="container__header">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="../assets/images/Logo/logoGobierno.png" alt="">
+                        </a>
                     </div>
-                    <div>
-                        <label class="block text-xl font-medium text-gray-600">Modelo</label>
-                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-                    </div>
-                    <div>
-                        <label class="block text-xl font-medium text-gray-600">Color</label>
-                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-                    </div>
-                    <div>
-                        <label class="block text-xl font-medium text-gray-600">Matrícula</label>
-                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-                    </div>
-                    <div>
-                        <label class="block text-xl font-medium text-gray-600">Estado</label>
-                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" />
-                    </div>
-                    <div>
-                        <label class="block text-xl font-medium text-gray-600">Tipo de coche</label>
-                        <select class="mt-1 p-2 border border-gray-300 rounded w-full" onchange="seleccionarTipoCoche(this)">
-                            <option value="grua">Grua</option>
-                            <option value="autobus">Autobus</option>
-                            <option value="coche">Coche</option>
-                        </select>
+                    <div class="menu">
+                        <a href="./incidentes.html" class="btn__quote">Regresar</a>
                     </div>
                 </div>
-            `;
+            </header>
+        </div>
 
-            // Añade el bloque de coche al contenedor
-            document.getElementById('cochesContainer').appendChild(cocheBlock);
+        <div class="mb-3 border-bottom">
+            <h1 id="title">Incidente</h1>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <p>Dirección: <input type="text" id="origenInput" class="form-control" placeholder="Escribe un lugar"></p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <button onclick="trazarRuta()" class="btn btn-primar btn-p">Buscar Corralon</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Mapa -->
+        <div class="container" style="margin-bottom: 20px;">
+            <div class="row Mapa">
+                <div id="tiempoViaje"></div> <!-- Este div mostrará el tiempo de viaje -->
+                <br>
+                <div class="col-lg-12 container-fluid" id="map"></div>
+            </div>
+        </div>
+
+        <!-- Corralon Asignado -->
+        <h3 class="subtitle">Corralón asignado</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="marca">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="modelo">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vehiculo -->
+        <h3 class="subtitle">Características del vehiculo:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="marca">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="modelo">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" class="form-control" id="color">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="matricula" class="form-label">Matrícula</label>
+                    <input type="text" class="form-control" id="matricula">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="tipoCoche" class="form-label">Tipo de coche</label>
+                    <select class="form-select" id="tipoCoche" onchange="seleccionarTipoCoche(this)">
+                        <option value="grua">Grua</option>
+                        <option value="autobus">Autobus</option>
+                        <option value="coche">Coche</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botones Finales -->
+        <div class="row">
+            <button type="button" onclick="regresar()" class="btn btn-danger"> Cancelar </button>
+            <button type="button" class="btn btn-primary"> Guardar </button>    
+        </div>
+    </div>
+        
+    <script>
+        function regresar () {
+            window.location.href = './incidentes.html'
         }
-
-        function seleccionarTipoCoche(selectElement) {
-            // Aquí puedes manejar la selección del tipo de coche si es necesario
-            console.log(selectElement.value);
-        }
-    </script>
-
-
+    </script>    
     <!-- URL del API de Ggoogle Maps -->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp1GHx7r5x2HOHdckpcZeUjBZ7QUyMCoc&callback=initMap"></script>
@@ -123,5 +145,4 @@
     <script src="../js/main.js"></script>
 
 </body>
-
 </html>
