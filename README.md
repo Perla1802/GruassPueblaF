@@ -48,17 +48,19 @@ La función handleLogin() realiza una solicitud al servidor para autenticar al u
 Maneja diferentes respuestas del servidor, mostrando mensajes de error o redirigiendo al usuario.
 
 # Página de incidentes
-Esta página se visualiza una vez que el usuario se halla logueado, en la cual se muestra un sliderbar que puede colapasrse en pantallas más pequeñas, contiene 3 secciones: Inicio, ajustes y salir.
-En la parte derecha podemos ver la visualización de los datos en los que se consumen las Apis através de un DataTable, en la que se pueden hacer búsquedas, conteo de registros y su edición.
+Esta página podemos ver la visualización de los datos en los que se consumen las Apis através de un DataTable, en la que se pueden hacer búsquedas, conteo de registros y su edición.
 Además. cuenta con un botón en el que se puede agregar un nuevo registro.
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/7c202e48-39db-48a1-ab2b-bb84cd92dd4f)
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/70bee1bf-6d35-4ca9-8aa2-b9d6fccd955e)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/35059ce6-f865-45bc-82c4-8f6a9111f4b3)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/be24cf34-6062-489f-a904-08103a375c37)
+
 
 Código
-![Registro](https://github.com/Perla1802/GruassPueblaF/assets/59744172/f64b9ee9-ab7e-4fb2-8b20-fb87db27a333)
+![Registro](https://github.com/Perla1802/GruassPueblaF/assets/59744172/a5298ca7-e233-4302-ac3a-ad176ace1827)
+
 
 Estilos
-![RegistroC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/138956cc-7bdc-4255-bd49-84c2cecb4b12)
+![RegistroC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/e1ec7037-7181-47eb-bb0a-f043ab2ef962)
+
 
 ## Explicación
 Este código representa una página web para la gestión de incidentes. El sistema utiliza tecnologías como Bootstrap, jQuery y DataTables para crear una interfaz interactiva y tabular de incidentes, permitiendo agregar, editar y visualizar registros de incidentes.
@@ -72,9 +74,8 @@ Bootstrap: Proporciona estilos y componentes para el diseño de la página.
 Boxicons CSS: Librería de iconos utilizada para los íconos en la barra de navegación.
 DataTables: Facilita la creación de tablas interactivas con capacidades de búsqueda, filtrado y paginación.
 
-- Barra de Navegación:
-Contiene un menú desplegable con opciones de "Inicio," "Ajustes," y "Salir."
-Interactividad lograda mediante jQuery para mostrar/ocultar el menú en pantallas pequeñas.
+
+
 Contenido Principal:
 
 - Visualización de incidentes en una tabla DataTable.
@@ -98,9 +99,9 @@ Diseño responsive para adaptarse a diferentes tamaños de pantalla.
 
 ## Agregar Incidente
 Esta página se muestra dando clic en "Agregar incidente" de la página antes mostrada.
-Se nos piden varios campos, en primera, la dirección en la que pasó el accidente y después nos arroja la ubicación en el mapa.
+Se nos piden varios campos, en primera, la dirección en la que pasó el accidente y después nos arroja la ubicación en el mapa, así como el corralón más cercano y a cuantos minutos se encuentra.
 De manera automática se llenan los campos que corresponde al corralón que se halla asignado.
-Para agregar uno o más coches, basta con hacer clic en "Agregar coche implicado" y se llenan los siguientes campos:
+Para agregar un coche llenamos los siguientes campos:
 - Marca
 - Modelo
 - Color
@@ -110,13 +111,15 @@ Para agregar uno o más coches, basta con hacer clic en "Agregar coche implicado
 
 Al final guardamos los campos y se podrán visualizar en nuestra tabla, si se desea cancelar se da clic en "Cancelar"
 
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/bd7aa5b1-339a-48c9-8d81-d1e012845e8f)
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/18948c81-14ac-4c2d-9d23-925a9a7efdad)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/4a7a7660-24c9-4954-860a-4007dcbb55b7)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/549241f9-83d9-4f07-886a-37b870f865de)
+
 
 Código
-![Formulario](https://github.com/Perla1802/GruassPueblaF/assets/59744172/16adea9d-1060-4093-b6a0-1fe382c7a465)
+![Formulario](https://github.com/Perla1802/GruassPueblaF/assets/59744172/2beeec00-57a9-481f-9d54-eaaf71d0b4df)
 Estilos
-![FormularioC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/cae7691a-f102-4dba-93dc-76634caa4de2)
+![FormularioC](https://github.com/Perla1802/GruassPueblaF/assets/59744172/dd00a1bc-926a-42b0-9992-e3f909e37576)
+
 
 ## Descripción:
 Este código HTML representa una página de formulario para registrar incidentes de tráfico. Utiliza tecnologías como Bootstrap, jQuery y Google Maps API para proporcionar una interfaz interactiva para el usuario.
@@ -137,10 +140,9 @@ Se utiliza un archivo de estilos personalizado (styleFormulario.css) para ajusta
 - Lugar del incidente con un botón para buscar corralones cercanos.
 - Mapa interactivo que muestra la ubicación del incidente.
 - Información del corralón asignado (dirección y teléfono).
-- Registro de coches implicados con la opción de agregar múltiples coches.
+
 
 4. Funcionalidades Adicionales:
-Cada coche implicado se agrega dinámicamente con un botón de "Agregar coche."
 Se proporciona una lista desplegable para seleccionar el tipo de coche (grúa, autobús, coche).
 
 5. Botones de Acción:
