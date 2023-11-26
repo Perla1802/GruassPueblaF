@@ -55,7 +55,8 @@ Además. cuenta con un botón en el que se puede agregar un nuevo registro.
 
 
 Código
-![Registro](https://github.com/Perla1802/GruassPueblaF/assets/59744172/a5298ca7-e233-4302-ac3a-ad176ace1827)
+
+![incidente](https://github.com/Perla1802/GruassPueblaF/assets/59744172/cd14b59f-7dcf-4d4b-85f5-7b99595a87a2)
 
 
 Estilos
