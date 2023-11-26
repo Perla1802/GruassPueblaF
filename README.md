@@ -50,7 +50,7 @@ Maneja diferentes respuestas del servidor, mostrando mensajes de error o redirig
 # Página de incidentes
 Esta página podemos ver la visualización de los datos en los que se consumen las Apis através de un DataTable, en la que se pueden hacer búsquedas, conteo de registros y su edición.
 Además. cuenta con un botón en el que se puede agregar un nuevo registro.
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/35059ce6-f865-45bc-82c4-8f6a9111f4b3)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/ed7d2780-fd07-470e-9386-85a4602b218f)
 ![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/be24cf34-6062-489f-a904-08103a375c37)
 
 
