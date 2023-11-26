@@ -21,7 +21,8 @@ A continuación se presenta la página principal, en la que se visualiza el tít
 
 ## Inicio de sesión
 Como su nombre lo dice, en esta parte el usuario puede loguarse ingresando su correo y una contraseña
-![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/a6332e2b-e368-4457-9be7-692e8763eea4)
+![image](https://github.com/Perla1802/GruassPueblaF/assets/59744172/c297f02b-ce62-45d2-8501-48d55b7d87fb)
+
 
 Código
 ![login](https://github.com/Perla1802/GruassPueblaF/assets/59744172/13a99e96-eb20-4a0a-9087-ec216363af00)
